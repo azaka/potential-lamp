@@ -15,6 +15,7 @@ jobs:
       - name: List files in the repository
         run: |
           git clone https://github.com/JustEnoughLinuxOS/distribution
+          cd distribution
           make docker-RK3566
           
       - run: echo "🍏 This job's status is ${{ job.status }}."
