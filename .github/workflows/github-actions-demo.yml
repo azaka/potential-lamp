@@ -14,10 +14,11 @@ jobs:
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
       - name: List files in the repository
         run: |
-          wget https://gmplib.org/download/gmp/gmp-6.3.0.tar.xz
           git clone https://github.com/JustEnoughLinuxOS/distribution
           cd distribution
-          make docker-RK3566 2>&1 || true
-          CLEAN_PACKAGES="gmp" make docker-RK3566
+          git apply ../diff
+          make docker-RK3566 
+          #2>&1 || true
+          #CLEAN_PACKAGES="gmp" make docker-RK3566
           
       - run: echo "🍏 This job's status is ${{ job.status }}."
