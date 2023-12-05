@@ -16,7 +16,7 @@ jobs:
         run: |
           git clone https://github.com/JustEnoughLinuxOS/distribution
           cd distribution
-          make docker-RK3566
+          make docker-RK3566 2>&1 || true
           CLEAN_PACKAGES="gmp" make docker-RK3566
           
       - run: echo "🍏 This job's status is ${{ job.status }}."
