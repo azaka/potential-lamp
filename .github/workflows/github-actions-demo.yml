@@ -20,11 +20,10 @@ jobs:
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
       - name: List files in the repository
         run: |
-          df -h
-#          git clone https://github.com/JustEnoughLinuxOS/distribution
- #         cd distribution
-  #        git apply ../diff
-   #       make docker-RK3566 
+          git clone https://github.com/JustEnoughLinuxOS/distribution
+          cd distribution
+          git apply ../diff
+          make docker-RK3566 
           #2>&1 || true
           #CLEAN_PACKAGES="gmp" make docker-RK3566
           
