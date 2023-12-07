@@ -24,7 +24,7 @@ jobs:
           git clone https://github.com/JustEnoughLinuxOS/distribution
           cd distribution
           git apply ../diff
-          make docker-RK3566 
+          BASE_ONLY=true make docker-RK3566 
           #2>&1 || true
           #CLEAN_PACKAGES="gmp" make docker-RK3566
           
