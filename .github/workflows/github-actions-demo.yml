@@ -25,7 +25,7 @@ jobs:
           cd distribution
           git apply ../diff
           BASE_ONLY=true make docker-RK3566 docker-RK3566-X55
-          ls -lah distribution/release
+          ls -lah release
           df -h
           du . -h -d 1
           #2>&1 || true
