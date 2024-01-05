@@ -21,7 +21,7 @@ jobs:
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
       - name: List files in the repository
         run: |
-          git clone https://github.com/JustEnoughLinuxOS/distribution
+          git clone https://github.com/JustEnoughLinuxOS/distribution -b mainline-3566
           cd distribution
           git apply ../diff
           BASE_ONLY=true make docker-RK3566 docker-RK3566-X55
