@@ -29,6 +29,13 @@ jobs:
           df -h
           du . -h -d 1
           #2>&1 || true
-          #CLEAN_PACKAGES="gmp" make docker-RK3566
-          
+          #CLEAN_PACKAGES="gmp" make docker-RK3566     
       - run: echo "🍏 This job's status is ${{ job.status }}."
+      - name: Setup upterm session
+        uses: lhotari/action-upterm@v1
+        if: ${{ success() }}
+        with:
+          ## limits ssh access and adds the ssh public key for the user which triggered the workflow
+          limit-access-to-actor: true
+          ## If no one connects after 5 minutes, shut down server.
+          wait-timeout-minutes: 60
