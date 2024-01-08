@@ -1,0 +1,14 @@
+diff --git a/packages/devel/boost/package.mk b/packages/devel/boost/package.mk
+index 673dd4624..95bafa9dd 100644
+--- a/packages/devel/boost/package.mk
++++ b/packages/devel/boost/package.mk
+@@ -7,7 +7,8 @@ PKG_NAME="boost"
+ PKG_VERSION="1.83.0"
+ PKG_LICENSE="OSS"
+ PKG_SITE="http://www.boost.org/"
+-PKG_URL="https://boostorg.jfrog.io/artifactory/main/release/${PKG_VERSION}/source/${PKG_NAME}_${PKG_VERSION//./_}.tar.bz2"
++#PKG_URL="https://boostorg.jfrog.io/artifactory/main/release/${PKG_VERSION}/source/${PKG_NAME}_${PKG_VERSION//./_}.tar.bz2"
++PKG_URL=https://src.fedoraproject.org/repo/pkgs/boost/boost_1_83_0.tar.bz2/sha512/d133b521bd754dc35a9bd30d8032bd2fd866026d90af2179e43bfd7bd816841f7f3b84303f52c0e54aebc373f4e4edd601a8f5a5e0c47500e0e852e04198a711/boost_1_83_0.tar.bz2
+ PKG_DEPENDS_HOST="toolchain:host"
+ PKG_DEPENDS_TARGET="toolchain boost:host Python3 zlib bzip2"
+ PKG_LONGDESC="boost: Peer-reviewed STL style libraries for C++"
