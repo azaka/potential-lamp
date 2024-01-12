@@ -24,4 +24,5 @@ index 4f4b25f30..350d2ce39 100644
 +#PKG_URL="https://git.sr.ht/~kennylevinsen/seatd/archive/${PKG_VERSION}.tar.gz"
 +PKG_URL="https://github.com/kennylevinsen/seatd/archive/refs/tags/0.8.0.tar.gz"
  PKG_DEPENDS_TARGET="toolchain systemd"
- PKG_LONGDESC="A minimal seat management daemon, and a universal seat management library." 
+ PKG_LONGDESC="A minimal seat management daemon, and a universal seat management library."
+ 
