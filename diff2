@@ -38,4 +38,5 @@ index 7b0dac762..0e561b02e 100644
 +    cat <<EOF >${INSTALL}/usr/config/emulationstation/es_systems.cfg
  <?xml version="1.0" encoding="UTF-8"?>
  <systemList>
-         <system> 
+         <system>
+ 
