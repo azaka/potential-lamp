@@ -26,6 +26,19 @@ index 4d72b4a18..484f14d43 100644
  PKG_DEPENDS_HOST="gcc:host"
  PKG_DEPENDS_TARGET="toolchain busybox:host hdparm hd-idle dosfstools e2fsprogs zip unzip usbutils parted procps-ng gptfdisk libtirpc"
  PKG_DEPENDS_INIT="toolchain libtirpc"
+diff --git a/packages/ui/emulationstation/package.mk b/packages/ui/emulationstation/package.mk
+index 7b0dac762..0e561b02e 100644
+--- a/packages/ui/emulationstation/package.mk
++++ b/packages/ui/emulationstation/package.mk
+@@ -122,7 +122,7 @@ makeinstall_target() {
+   if [ "${EMULATION_DEVICE}" = "no" ] || \
+      [ "${BASE_ONLY}" = "true" ]
+   then
+-    cat <<EOF >${INSTALL}/etc/emulationstation/es_systems.cfg
++    cat <<EOF >${INSTALL}/usr/config/emulationstation/es_systems.cfg
+ <?xml version="1.0" encoding="UTF-8"?>
+ <systemList>
+         <system>
 diff --git a/packages/wayland/lib/seatd/package.mk b/packages/wayland/lib/seatd/package.mk
 index 4f4b25f30..350d2ce39 100644
 --- a/packages/wayland/lib/seatd/package.mk
