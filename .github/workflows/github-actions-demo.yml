@@ -17,7 +17,7 @@ jobs:
           remove-dotnet: 'true'
       - name: Check out repository code
         uses: actions/checkout@v4
-      - run: git clone https://github.com/JustEnoughLinuxOS/distribution -b mainline-3566
+      - run: git clone https://github.com/JustEnoughLinuxOS/distribution -b dev
       - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
       - name: Cache Primes
@@ -30,7 +30,7 @@ jobs:
         run: |
           cd distribution
           #no longer needed
-          git apply ../diff2
+          #git apply ../diff2
           EMULATION_DEVICE=no ENABLE_32BIT=no make docker-RK3566 docker-RK3566-X55
           ls -lah release
           df -h
