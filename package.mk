@@ -54,7 +54,8 @@ case "${DEVICE}" in
   RK356*)
     [ "${ENABLE_32BIT}" == "true" ] && EMUS_32BIT="box86 desmume-lr flycast-lr gpsp-lr pcsx_rearmed-lr"
     PKG_DEPENDS_TARGET=
-    PKG_EMUS=" citra-sa aethersx2-sa dolphin-sa mednafen box64 portmaster"
+    # citra-sa requires glslang/vulkan
+    PKG_EMUS=" aethersx2-sa dolphin-sa mednafen box64 portmaster"
     LIBRETRO_CORES=" mgba-lr"
   ;;
   S922X*)
