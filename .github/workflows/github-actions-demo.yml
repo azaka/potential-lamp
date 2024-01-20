@@ -20,19 +20,25 @@ jobs:
       - run: git clone https://github.com/JustEnoughLinuxOS/distribution -b mainline-3566
       - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
-      - name: Cache Primes
+      - name: Cache 64 bit
         id: ccache-aarch64
         uses: actions/cache@v3
         with:
           path: distribution/.ccache-aarch64
           key: ${{ runner.os }}-ccache-aarch64
+      - name: Cache 32 bit
+        id: ccache-arm
+        uses: actions/cache@v3
+        with:
+          path: distribution/.ccache-arm
+          key: ${{ runner.os }}-ccache-arm
       - name: List files in the repository
         run: |
           cd distribution
           cp ../package.mk packages/virtual/emulators/package.mk
           #no longer needed
           git apply ../diff2
-          EMULATION_DEVICE=yes ENABLE_32BIT=no make docker-RK3566 docker-RK3566-X55
+          EMULATION_DEVICE=yes make docker-RK3566 docker-RK3566-X55
           ls -lah release
           df -h
           du . -h -d 1
