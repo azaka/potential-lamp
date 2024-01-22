@@ -55,7 +55,7 @@ case "${DEVICE}" in
     [ "${ENABLE_32BIT}" == "true" ] && EMUS_32BIT="box86 desmume-lr flycast-lr gpsp-lr pcsx_rearmed-lr"
     PKG_DEPENDS_TARGET=
     # citra-sa requires glslang/vulkan
-    PKG_EMUS=" aethersx2-sa dolphin-sa mednafen box64 portmaster"
+    PKG_EMUS=" mednafen box64 portmaster"
     LIBRETRO_CORES=" mgba-lr"
   ;;
   S922X*)
