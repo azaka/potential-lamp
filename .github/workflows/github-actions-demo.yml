@@ -38,7 +38,7 @@ jobs:
           cp ../package.mk packages/virtual/emulators/package.mk
           #no longer needed
           git apply ../diff2
-          EMULATION_DEVICE=no make docker-RK3566 docker-RK3566-X55
+          EMULATION_DEVICE=yes make docker-RK3566 docker-RK3566-X55
           ls -lah release
           df -h
           du . -h -d 1
