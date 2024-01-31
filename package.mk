@@ -137,9 +137,6 @@ makeinstall_target() {
     ;;
   esac
 
-  add_emu_core 3ds citra citra-sa true
-  add_es_system 3ds
-
   ### Commodore Amiga
   case ${DEVICE} in
     RK35*|RK3326|RK3399)
