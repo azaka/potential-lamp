@@ -17,7 +17,7 @@ jobs:
           remove-dotnet: 'true'
       - name: Check out repository code
         uses: actions/checkout@v4
-      - run: git clone https://github.com/JustEnoughLinuxOS/distribution -b mainline-3566
+      - run: git clone https://github.com/JustEnoughLinuxOS/distribution -b dev
       - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
       - name: Cache 64 bit
@@ -35,10 +35,10 @@ jobs:
       - name: List files in the repository
         run: |
           cd distribution
-          cp ../package.mk packages/virtual/emulators/package.mk
+          #cp ../package.mk packages/virtual/emulators/package.mk
           #no longer needed
-          git apply ../diff2
-          cat packages/virtual/emulators/package.mk
+          #git apply ../diff2
+          #cat packages/virtual/emulators/package.mk
           EMULATION_DEVICE=yes make docker-RK3566 docker-RK3566-X55
           ls -lah release
           df -h
@@ -48,7 +48,7 @@ jobs:
       - run: echo "🍏 This job's status is ${{ job.status }}."
       - name: Setup upterm session
         uses: lhotari/action-upterm@v1
-        if: ${{ success() }}
+        if: ${{ failure() }}
         with:
           ## limits ssh access and adds the ssh public key for the user which triggered the workflow
           limit-access-to-actor: true
