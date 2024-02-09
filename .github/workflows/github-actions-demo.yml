@@ -22,13 +22,13 @@ jobs:
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
       - name: Cache 64 bit
         id: ccache-aarch64
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: distribution/.ccache-aarch64
           key: ${{ runner.os }}-ccache-aarch64
       - name: Cache 32 bit
         id: ccache-arm
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: distribution/.ccache-arm
           key: ${{ runner.os }}-ccache-arm
