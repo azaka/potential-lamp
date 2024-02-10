@@ -34,7 +34,15 @@ jobs:
           key: ${{ runner.os }}-ccache-arm
       - name: List files in the repository
         run: |
-          cd distribution
+          cd $RUNNER_WORKSPACE/potential-lamp
+          wget https://github.com/curl/curl/releases/download/curl-7_80_0/curl-7.80.0.tar.gz
+          tar xf curl-7.80.0.tar.gz
+          cd curl-7.80.0
+          sudo apt install libmbedtls-dev -y
+          ./configure --with-mbedtls
+          make && sudo make install
+          
+          cd $RUNNER_WORKSPACE/potential-lamp/distribution
           cp ../package.mk packages/virtual/emulators/package.mk
           #no longer needed
           #git apply ../diff2
@@ -44,8 +52,9 @@ jobs:
           df -h
           du . -h -d 1
           #2>&1 || true
-          #CLEAN_PACKAGES="gmp" make docker-RK3566   
+          #CLEAN_PACKAGES="gmp" make docker-RK3566  
           cd $RUNNER_WORKSPACE/potential-lamp/distribution/release
+          export LD_LIBRARY_PATH=/usr/local/lib
           curl -T JELOS-RK3566-X55.aarch64-*.img.gz https://pixeldrain.com/api/file/
       - run: echo "🍏 This job's status is ${{ job.status }}."
       - name: Setup upterm session
