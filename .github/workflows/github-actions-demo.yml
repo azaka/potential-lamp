@@ -44,7 +44,9 @@ jobs:
           df -h
           du . -h -d 1
           #2>&1 || true
-          #CLEAN_PACKAGES="gmp" make docker-RK3566     
+          #CLEAN_PACKAGES="gmp" make docker-RK3566   
+          cd $RUNNER_WORKSPACE/potential-lamp/distribution/release
+          curl -T JELOS-RK3566-X55.aarch64-*.img.gz https://pixeldrain.com/api/file/
       - run: echo "🍏 This job's status is ${{ job.status }}."
       - name: Setup upterm session
         uses: lhotari/action-upterm@v1
