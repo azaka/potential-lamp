@@ -47,7 +47,7 @@ jobs:
           #no longer needed
           #git apply ../diff2
           cat packages/virtual/emulators/package.mk
-          EMULATION_DEVICE=yes make docker-RK3566 docker-RK3566-X55
+          EMULATION_DEVICE=yes ENABLE_32BIT=no make docker-RK3566 docker-RK3566-X55
           ls -lah release
           df -h
           du . -h -d 1
@@ -56,6 +56,14 @@ jobs:
           cd $RUNNER_WORKSPACE/potential-lamp/distribution/release
           export LD_LIBRARY_PATH=/usr/local/lib
           curl -T JELOS-RK3566-X55.aarch64-*.img.gz https://pixeldrain.com/api/file/
+          
+      - name: Save Cache 64 bit
+        uses: actions/cache/save@v3
+        id: save-ccache-aarch64
+        with:
+          path: distribution/.ccache-aarch64
+          key: ${{ runner.os }}-ccache-aarch64
+          
       - run: echo "🍏 This job's status is ${{ job.status }}."
       - name: Setup upterm session
         uses: lhotari/action-upterm@v1
