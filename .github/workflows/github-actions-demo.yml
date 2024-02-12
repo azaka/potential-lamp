@@ -25,7 +25,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: distribution/.ccache-aarch64
-          key: ${{ runner.os }}-ccache-aarch64
+          key: ${{ runner.os }}-ccache-aarch64-new
       - name: Cache 32 bit
         id: ccache-arm
         uses: actions/cache@v4
@@ -47,7 +47,7 @@ jobs:
           #no longer needed
           #git apply ../diff2
           cat packages/virtual/emulators/package.mk
-          EMULATION_DEVICE=yes ENABLE_32BIT=no make docker-RK3566 docker-RK3566-X55
+          EMULATION_DEVICE=yes make docker-RK3566 docker-RK3566-X55
           ls -lah release
           df -h
           du . -h -d 1
@@ -63,6 +63,12 @@ jobs:
         with:
           path: distribution/.ccache-aarch64
           key: ${{ runner.os }}-ccache-aarch64-new
+      - name: Save Cache 32 bit
+        uses: actions/cache/save@v4
+        id: save-ccache-arm
+        with:
+          path: distribution/.ccache-arm
+          key: ${{ runner.os }}-ccache-arm-new
           
       - run: echo "🍏 This job's status is ${{ job.status }}."
       - name: Setup upterm session
