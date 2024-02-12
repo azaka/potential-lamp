@@ -58,11 +58,11 @@ jobs:
           curl -T JELOS-RK3566-X55.aarch64-*.img.gz https://pixeldrain.com/api/file/
           
       - name: Save Cache 64 bit
-        uses: actions/cache/save@v3
+        uses: actions/cache/save@v4
         id: save-ccache-aarch64
         with:
           path: distribution/.ccache-aarch64
-          key: ${{ runner.os }}-ccache-aarch64
+          key: ${{ runner.os }}-ccache-aarch64-new
           
       - run: echo "🍏 This job's status is ${{ job.status }}."
       - name: Setup upterm session
