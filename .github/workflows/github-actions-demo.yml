@@ -31,7 +31,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: distribution/.ccache-arm
-          key: ${{ runner.os }}-ccache-arm
+          key: ${{ runner.os }}-ccache-arm-new
       - name: List files in the repository
         run: |
           cd $RUNNER_WORKSPACE/potential-lamp
