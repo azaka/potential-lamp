@@ -58,7 +58,7 @@ jobs:
           #cp projects/Rockchip/packages/u-boot/patches/RK3566/003-fix-dtb-and-vs.patch projects/Rockchip/packages/u-boot/patches/RK3566-X55
           #EMULATION_DEVICE=yes make docker-RK3566 docker-RK3566-X55
           
-          EMULATION_DEVICE=yes ENABLE_32BIT=no make docker-RK3566 docker-RK3566-X55
+          EMULATION_DEVICE=no ENABLE_32BIT=no make docker-RK3566 docker-RK3566-X55
           #BASE_ONLY=true ENABLE_32BIT=no make docker-RK3566 docker-RK3566-X55
           ls -lah release
           df -h
