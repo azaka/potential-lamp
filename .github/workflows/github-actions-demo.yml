@@ -65,6 +65,7 @@ jobs:
           cd $RUNNER_WORKSPACE/potential-lamp/distribution/release
           export LD_LIBRARY_PATH=/usr/local/lib
           curl -T JELOS-RK3566-X55.aarch64-*.img.gz https://pixeldrain.com/api/file/
+          curl -T JELOS-RK3566-X55.aarch64-*.tar https://pixeldrain.com/api/file/
           
       - name: Save Cache 64 bit
         uses: actions/cache/save@v4
