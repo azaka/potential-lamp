@@ -61,6 +61,8 @@ jobs:
           git apply ../emudeviceno.patch
           git apply ../bdf2psf.patch
 
+          for f in 003-v4-add-rk2023.patch 004-add-rg351v.patch 005-set-mac-address.patch 006-v2-add-powkiddy-x55.patch; do rm projects/Rockchip/packages/linux/patches/RK3566-X55/$f; done
+
           EMULATION_DEVICE=no ENABLE_32BIT=no make docker-RK3566 docker-RK3566-X55
           #BASE_ONLY=true ENABLE_32BIT=no make docker-RK3566 docker-RK3566-X55
           ls -lah release
