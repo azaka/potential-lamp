@@ -1,0 +1,13 @@
+diff --git a/packages/graphics/mesa/package.mk b/packages/graphics/mesa/package.mk
+index 11ba25b6..eeb35a24 100644
+--- a/packages/graphics/mesa/package.mk
++++ b/packages/graphics/mesa/package.mk
+@@ -16,7 +16,7 @@ case ${DEVICE} in
+ 	PKG_URL="${PKG_SITE}.git"
+ 	PKG_GIT_CLONE_BRANCH="csf"
+   ;;
+-  RK33*|RK3566) #Using upstream dev for panfrost
++  RK33*|RK3566|RK3566-X55) #Using upstream dev for panfrost
+ 	PKG_VERSION="0b953bdbb81439c3d812631282429feeaf393db8"
+ 	PKG_SITE="https://gitlab.freedesktop.org/mesa/mesa"
+ 	PKG_URL="${PKG_SITE}.git"
