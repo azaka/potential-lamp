@@ -55,8 +55,8 @@ jobs:
           cat packages/virtual/emulators/package.mk
           
           # update u-boot patches for X55
-          cp projects/Rockchip/packages/u-boot/patches/RK3566/001-v3-add_additional_boards_and_features_to_rgxx3.patch projects/Rockchip/packages/u-boot/patches/RK3566-X55
-          cp projects/Rockchip/packages/u-boot/patches/RK3566/003-fix-dtb-and-vs.patch projects/Rockchip/packages/u-boot/patches/RK3566-X55
+          #cp projects/Rockchip/packages/u-boot/patches/RK3566/001-v3-add_additional_boards_and_features_to_rgxx3.patch projects/Rockchip/packages/u-boot/patches/RK3566-X55
+          #cp projects/Rockchip/packages/u-boot/patches/RK3566/003-fix-dtb-and-vs.patch projects/Rockchip/packages/u-boot/patches/RK3566-X55
           #EMULATION_DEVICE=yes make docker-RK3566 docker-RK3566-X55
           git apply ../emudeviceno.patch
           # git apply ../bdf2psf.patch
@@ -65,8 +65,15 @@ jobs:
 
           git apply ../fix-mesa-dev.patch
           #for f in 003-v4-add-rk2023.patch 004-add-rg351v.patch 005-set-mac-address.patch 006-v2-add-powkiddy-x55.patch; do rm projects/Rockchip/packages/linux/patches/RK3566-X55/$f; done
-          pushd projects/Rockchip/packages/linux/patches/RK3566-X55/
-          wget "https://gitlab.com/iii1111/brrrrrrrrrr/-/raw/master/patches/linux/0008-Fix-8821cs-sdio-errors.patch?ref_type=heads&inline=false" -O 0008-Fix-8821cs-sdio-errors.patch
+          
+          # mainline-3566 branch
+          #pushd projects/Rockchip/packages/linux/patches/RK3566-X55/
+          #wget "https://gitlab.com/iii1111/brrrrrrrrrr/-/raw/master/patches/linux/0008-Fix-8821cs-sdio-errors.patch?ref_type=heads&inline=false" -O 0008-Fix-8821cs-sdio-errors.patch
+          #popd
+
+          # dev branch
+          pushd projects/Rockchip/patches/linux/RK3566-X55
+          wget https://gitlab.com/iii1111/brrrrrrrrrr/-/raw/master/patches/linux/0008-Fix-8821cs-sdio-errors.patch
           popd
 
           git apply ../busybox.patch
