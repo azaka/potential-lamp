@@ -65,9 +65,9 @@ jobs:
 
           git apply ../fix-mesa-dev.patch
           #for f in 003-v4-add-rk2023.patch 004-add-rg351v.patch 005-set-mac-address.patch 006-v2-add-powkiddy-x55.patch; do rm projects/Rockchip/packages/linux/patches/RK3566-X55/$f; done
-          #pushd projects/Rockchip/packages/linux/patches/RK3566-X55/
-          #wget "https://gitlab.com/iii1111/brrrrrrrrrr/-/raw/master/patches/linux/0008-Fix-8821cs-sdio-errors.patch?ref_type=heads&inline=false" -O 0008-Fix-8821cs-sdio-errors.patch
-          #popd
+          pushd projects/Rockchip/packages/linux/patches/RK3566-X55/
+          wget "https://gitlab.com/iii1111/brrrrrrrrrr/-/raw/master/patches/linux/0008-Fix-8821cs-sdio-errors.patch?ref_type=heads&inline=false" -O 0008-Fix-8821cs-sdio-errors.patch
+          popd
 
           git apply ../busybox.patch
 
