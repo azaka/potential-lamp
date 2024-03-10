@@ -88,8 +88,7 @@ jobs:
           # alt mirror
           git apply ../usb-modeswitch-dev.patch
 
-          #EMULATION_DEVICE=no ENABLE_32BIT=no make docker-RK3566 docker-RK3566-X55
-          make docker-RK3566 docker-RK3566-X55
+          EMULATION_DEVICE=no ENABLE_32BIT=no make docker-RK3566 docker-RK3566-X55
           #BASE_ONLY=true ENABLE_32BIT=no make docker-RK3566 docker-RK3566-X55
           ls -lah release
           df -h
