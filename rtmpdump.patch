@@ -1,5 +1,5 @@
 diff --git a/packages/multimedia/rtmpdump/package.mk b/packages/multimedia/rtmpdump/package.mk
-index 09038748..4811750a 100644
+index 09038748..563b8fb2 100644
 --- a/packages/multimedia/rtmpdump/package.mk
 +++ b/packages/multimedia/rtmpdump/package.mk
 @@ -6,7 +6,7 @@ PKG_NAME="rtmpdump"
@@ -7,7 +7,7 @@ index 09038748..4811750a 100644
  PKG_LICENSE="GPL"
  PKG_SITE="http://rtmpdump.mplayerhq.hu/"
 -PKG_URL="http://repo.or.cz/rtmpdump.git/snapshot/${PKG_VERSION}.tar.gz"
-+PKG_URL="https://sources.buildroot.net/${PKG_VERSION}.tar.gz"
++PKG_URL="https://sources.buildroot.net/${PKG_NAME}/${PKG_NAME}-${PKG_VERSION}.tar.gz"
  PKG_DEPENDS_TARGET="toolchain zlib openssl"
  PKG_LONGDESC="rtmpdump is a toolkit for RTMP streams."
  PKG_BUILD_FLAGS="+pic"
