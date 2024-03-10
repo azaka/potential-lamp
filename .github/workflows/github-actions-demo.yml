@@ -74,14 +74,10 @@ jobs:
           #popd
 
           # dev branch
-          #pushd projects/Rockchip/patches/linux/RK3566-X55
-          #wget https://gitlab.com/iii1111/brrrrrrrrrr/-/raw/master/patches/linux/0008-Fix-8821cs-sdio-errors.patch
-          #popd
-
-          git config --global user.email "you@example.com"
-          git config --global user.name "Your Name"
-          git fetch https://github.com/Sparticuz/jelos wifi # FETCH_HEAD
-          git merge FETCH_HEAD -m"add wifi patch"
+          pushd projects/Rockchip/patches/linux/RK3566-X55
+          rm 004-fix-8821cs-sdio-errors.patch
+          wget https://gitlab.com/iii1111/brrrrrrrrrr/-/raw/master/patches/linux/0008-Fix-8821cs-sdio-errors.patch
+          popd
 
           git apply ../busybox.patch
           
