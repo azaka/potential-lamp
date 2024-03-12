@@ -1,0 +1,30 @@
+diff --git a/packages/debug/edid-decode/package.mk b/packages/debug/edid-decode/package.mk
+index 95a6a539..087258f8 100644
+--- a/packages/debug/edid-decode/package.mk
++++ b/packages/debug/edid-decode/package.mk
+@@ -2,10 +2,10 @@
+ # Copyright (C) 2016-present Team LibreELEC (https://libreelec.tv)
+ 
+ PKG_NAME="edid-decode"
+-PKG_VERSION="5f723267e04deb3aa9610483514a02bcee10d9c2" # 2022-09-23
++PKG_VERSION="2d44e1b01c7ed7d65b20ecdce62d354841832201"
+ PKG_LICENSE="None"
+ PKG_SITE="https://git.linuxtv.org/edid-decode.git/"
+-PKG_URL="https://repo.or.cz/edid-decode.git/snapshot/${PKG_VERSION}.tar.gz"
++PKG_URL="https://sources.buildroot.net/${PKG_NAME}/${PKG_NAME}-${PKG_VERSION}-br1.tar.gz"
+ PKG_DEPENDS_TARGET="toolchain"
+ PKG_LONGDESC="Decode EDID data in human-readable format"
+ 
+diff --git a/packages/kernel/linux/package.mk b/packages/kernel/linux/package.mk
+index 3e7833cd..38282903 100644
+--- a/packages/kernel/linux/package.mk
++++ b/packages/kernel/linux/package.mk
+@@ -39,7 +39,7 @@ case ${DEVICE} in
+     PKG_GIT_CLONE_BRANCH="main"
+   ;;
+   RK356*)
+-    PKG_VERSION="6.8-rc6"
++    PKG_VERSION="6.8-rc3"
+     PKG_URL="https://git.kernel.org/torvalds/t/${PKG_NAME}-${PKG_VERSION}.tar.gz"
+   ;;
+   *)
