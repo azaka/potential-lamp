@@ -135,7 +135,6 @@ jobs:
         run: |
           wget https://github.com/owenthereal/upterm/releases/download/v0.13.2/upterm_linux_amd64.tar.gz
           tar xf upterm_linux_amd64.tar.gz
-          ./upterm host --github-user azaka &
-          ./upterm session current --admin-socket ~/.upterm/*.sock
+          ./upterm host --github-user azaka --accept
           while true; do sleep 10000; done 
           
