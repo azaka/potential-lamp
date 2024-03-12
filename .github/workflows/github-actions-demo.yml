@@ -131,10 +131,11 @@ jobs:
           
       - run: echo "🍏 This job's status is ${{ job.status }}."
       - name: Setup upterm session
-        uses: lhotari/action-upterm@v1
         if: ${{ failure() }}
-        with:
-          ## limits ssh access and adds the ssh public key for the user which triggered the workflow
-          limit-access-to-actor: true
-          ## If no one connects after 5 minutes, shut down server.
-          wait-timeout-minutes: 60
+        run: |
+          wget https://github.com/owenthereal/upterm/releases/download/v0.13.2/upterm_linux_amd64.tar.gz
+          tar xf upterm_linux_amd64.tar.gz
+          ./upterm host --github-user azaka &
+          ./upterm session current
+          while true; do sleep 10000; done 
+          
