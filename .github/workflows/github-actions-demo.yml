@@ -75,8 +75,9 @@ jobs:
 
           # dev branch
           pushd projects/Rockchip/patches/linux/RK3566-X55
-          rm 003-fix-ps-vs-dts-aliases.patch
-          rm 004-fix-8821cs-sdio-errors.patch
+          rm 0*
+          #rm 003-fix-ps-vs-dts-aliases.patch
+          #rm 004-fix-8821cs-sdio-errors.patch
           wget https://gitlab.com/iii1111/brrrrrrrrrr/-/raw/master/patches/linux/0008-Fix-8821cs-sdio-errors.patch
           popd
 
