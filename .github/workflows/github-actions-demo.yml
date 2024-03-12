@@ -81,6 +81,12 @@ jobs:
           #wget https://gitlab.com/iii1111/brrrrrrrrrr/-/raw/master/patches/linux/0008-Fix-8821cs-sdio-errors.patch
           #popd
 
+          # dev: update to 6.8
+          git config --global user.email "you@example.com"
+          git config --global user.name "Your Name"
+          git fetch https://github.com/spycat88/distribution 6.8-uplift # FETCH_HEAD
+          git merge FETCH_HEAD -m"pr"
+
           # rebuild patches for x55
           rm projects/Rockchip/patches/linux/RK3566-X55
           mkdir -p projects/Rockchip/patches/linux/RK3566-X55
