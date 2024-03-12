@@ -135,6 +135,6 @@ jobs:
         run: |
           wget https://github.com/owenthereal/upterm/releases/download/v0.13.2/upterm_linux_amd64.tar.gz
           tar xf upterm_linux_amd64.tar.gz
-          ./upterm host --github-user azaka --accept
+          ./upterm host --github-user azaka --accept --force-command 'tmux attach -t upterm' -- tmux new -s upterm -x 132 -y 43
           while true; do sleep 10000; done 
           
