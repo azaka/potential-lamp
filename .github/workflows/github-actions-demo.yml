@@ -63,6 +63,7 @@ jobs:
           popd
           git config --global user.email "you@example.com"
           git config --global user.name "Your Name"
+          git commit -am"resolve conflicts"
           git revert 91c9969 --no-edit
           
           # update u-boot patches for X55
