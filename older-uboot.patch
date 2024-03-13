@@ -1,0 +1,13 @@
+diff --git a/projects/Rockchip/packages/u-boot/package.mk b/projects/Rockchip/packages/u-boot/package.mk
+index bf80822a..f29469ee 100644
+--- a/projects/Rockchip/packages/u-boot/package.mk
++++ b/projects/Rockchip/packages/u-boot/package.mk
+@@ -22,7 +22,7 @@ case ${DEVICE} in
+   ;;
+   RK356*)
+     PKG_URL="https://github.com/u-boot/u-boot.git"
+-    PKG_VERSION="e8f2404e093daf6cc3ac2b3233e3c6770d13e371"
++    PKG_VERSION="27089f1e4d11fd7e0619097b59258d0428cde2ac"
+     PKG_GIT_CLONE_BRANCH="master"
+   ;;
+   RK3399)
