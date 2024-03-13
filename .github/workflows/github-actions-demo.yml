@@ -7,6 +7,8 @@ on:
 jobs:
   Explore-GitHub-Actions:
     timeout-minutes: 1440
+    strategy: 
+      fail-fast: false
     runs-on: ubuntu-latest
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
@@ -143,4 +145,4 @@ jobs:
           ## limits ssh access and adds the ssh public key for the user which triggered the workflow
           limit-access-to-actor: true
           ## If no one connects after 5 minutes, shut down server.
-          wait-timeout-minutes: 5
+          wait-timeout-minutes: 60
