@@ -56,7 +56,14 @@ jobs:
           #git apply ../diff2
           cat packages/virtual/emulators/package.mk
 
-          git revert 91c9969 -m"revert"
+          # restore removed firmware packages
+          pushd projects/Rockchip/devices/RK3588
+          rm options
+          wget https://raw.githubusercontent.com/JustEnoughLinuxOS/distribution/667ae584b4215bd4ef7d8f5d58ff36b6f2420942/projects/Rockchip/devices/RK3588/options
+          popd
+          git config --global user.email "you@example.com"
+          git config --global user.name "Your Name"
+          git revert 91c9969 --no-edit
           
           # update u-boot patches for X55
           #cp projects/Rockchip/packages/u-boot/patches/RK3566/001-v3-add_additional_boards_and_features_to_rgxx3.patch projects/Rockchip/packages/u-boot/patches/RK3566-X55
