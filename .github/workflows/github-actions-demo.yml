@@ -26,6 +26,7 @@ jobs:
           #git clone https://github.com/JustEnoughLinuxOS/distribution -b mainline-3566
           git clone https://github.com/JustEnoughLinuxOS/distribution -b dev
           #cd distribution && git checkout bf90f7af16390830df298552c3eb621d3bb79f01
+          cd distribution && git checkout 667ae58
       - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
       - name: Cache 64 bit
@@ -55,8 +56,6 @@ jobs:
           #no longer needed
           #git apply ../diff2
           cat packages/virtual/emulators/package.mk
-
-          git revert 91c9969 -m"revert"
           
           # update u-boot patches for X55
           #cp projects/Rockchip/packages/u-boot/patches/RK3566/001-v3-add_additional_boards_and_features_to_rgxx3.patch projects/Rockchip/packages/u-boot/patches/RK3566-X55
