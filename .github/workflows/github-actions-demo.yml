@@ -80,7 +80,8 @@ jobs:
           # only apply to mainline-3566
           #git apply ../fix-mesa-mainline-3566.patch
 
-          git apply ../fix-mesa-dev.patch
+          #git apply ../fix-mesa-dev.patch
+          git apply ../mesa-bf90f7.patch
 
           #current u-boot
           #git apply ../uboot-dev.patch
