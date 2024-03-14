@@ -25,7 +25,7 @@ jobs:
       - run: |
           #git clone https://github.com/JustEnoughLinuxOS/distribution -b mainline-3566
           git clone https://github.com/JustEnoughLinuxOS/distribution -b dev
-          cd distribution && git checkout a8488eca91fe7f1b8dc8e038cf9ff03ca89e3ebf
+          cd distribution && git checkout 561cd8dce584051cc9f4c79ab27b3ba0561de692
       - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
       - name: Cache 64 bit
