@@ -76,7 +76,9 @@ jobs:
           
           #EMULATION_DEVICE=yes make docker-RK3566 docker-RK3566-X55
           git apply ../emudeviceno.patch
-          # git apply ../bdf2psf.patch
+          # needed for bf90f7
+          git apply ../bdf2psf.patch
+          
           # only apply to mainline-3566
           #git apply ../fix-mesa-mainline-3566.patch
 
