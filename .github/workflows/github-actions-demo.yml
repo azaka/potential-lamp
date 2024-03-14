@@ -72,7 +72,7 @@ jobs:
           # use older u-boot
           #cp projects/Rockchip/packages/u-boot/patches/RK3566-X55/001-v3-add_additional_boards_and_features_to_rgxx3.patch projects/Rockchip/packages/u-boot/patches/RK3566
           #cp projects/Rockchip/packages/u-boot/patches/RK3566-X55/003-fix-dtb-and-vs.patch projects/Rockchip/packages/u-boot/patches/RK3566
-          git apply ../older-uboot-dev.patch
+          #git apply ../older-uboot-dev.patch
           
           #EMULATION_DEVICE=yes make docker-RK3566 docker-RK3566-X55
           git apply ../emudeviceno.patch
