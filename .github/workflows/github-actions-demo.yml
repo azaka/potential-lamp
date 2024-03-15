@@ -122,6 +122,11 @@ jobs:
           #wget https://gitlab.com/iii1111/brrrrrrrrrr/-/raw/master/patches/linux/0008-Fix-8821cs-sdio-errors.patch
           #popd
 
+          # fix retroarch
+          pushd ./packages/emulators/standalone/retroarch/sources/
+          ln -s RK3566-X55 RK3566
+          popd
+
           git apply ../busybox.patch
           
           # alt mirror
