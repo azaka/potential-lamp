@@ -25,7 +25,7 @@ jobs:
       - run: |
           #git clone https://github.com/JustEnoughLinuxOS/distribution -b mainline-3566
           git clone https://github.com/JustEnoughLinuxOS/distribution -b dev
-          cd distribution && git checkout 749930f2320f97cfe02102c6128e90d7f1512a80
+          #cd distribution && git checkout 749930f2320f97cfe02102c6128e90d7f1512a80
       - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
       - name: Cache 64 bit
@@ -66,9 +66,9 @@ jobs:
           #git commit -am"resolve conflicts"
           #git revert 91c9969 --no-edit
           
-          #! update u-boot patches for X55
-          #cp projects/Rockchip/packages/u-boot/patches/RK3566/001-v3-add_additional_boards_and_features_to_rgxx3.patch projects/Rockchip/packages/u-boot/patches/RK3566-X55
-          #cp projects/Rockchip/packages/u-boot/patches/RK3566/003-fix-dtb-and-vs.patch projects/Rockchip/packages/u-boot/patches/RK3566-X55
+          #! update u-boot patches for X55 for newer u-boot
+          cp projects/Rockchip/packages/u-boot/patches/RK3566/001-v3-add_additional_boards_and_features_to_rgxx3.patch projects/Rockchip/packages/u-boot/patches/RK3566-X55
+          cp projects/Rockchip/packages/u-boot/patches/RK3566/003-fix-dtb-and-vs.patch projects/Rockchip/packages/u-boot/patches/RK3566-X55
           # use older u-boot
           #cp projects/Rockchip/packages/u-boot/patches/RK3566-X55/001-v3-add_additional_boards_and_features_to_rgxx3.patch projects/Rockchip/packages/u-boot/patches/RK3566
           #cp projects/Rockchip/packages/u-boot/patches/RK3566-X55/003-fix-dtb-and-vs.patch projects/Rockchip/packages/u-boot/patches/RK3566
@@ -77,31 +77,31 @@ jobs:
           #EMULATION_DEVICE=yes make docker-RK3566 docker-RK3566-X55
           git apply ../emudeviceno.patch
           # needed for bf90f7
-          git apply ../bdf2psf.patch
+          # git apply ../bdf2psf.patch
           
           # only apply to mainline-3566
           #git apply ../fix-mesa-mainline-3566.patch
 
-          #git apply ../fix-mesa-dev.patch
-          git apply ../mesa-bf90f7.patch
+          git apply ../fix-mesa-dev.patch
+          #git apply ../mesa-bf90f7.patch
 
           #current u-boot
-          #git apply ../uboot-dev.patch
+          git apply ../uboot-dev.patch
 
           # remove outdated patches
           # for f in 003-v4-add-rk2023.patch 004-add-rg351v.patch 005-set-mac-address.patch 006-v2-add-powkiddy-x55.patch; do rm projects/Rockchip/packages/linux/patches/RK3566-X55/$f; done
           
           # mainline-3566 branch
-          pushd projects/Rockchip/packages/linux/patches/RK3566-X55/
-          wget https://gitlab.com/iii1111/brrrrrrrrrr/-/raw/master/patches/linux/0008-Fix-8821cs-sdio-errors.patch
-          popd
+          #pushd projects/Rockchip/packages/linux/patches/RK3566-X55/
+          #wget https://gitlab.com/iii1111/brrrrrrrrrr/-/raw/master/patches/linux/0008-Fix-8821cs-sdio-errors.patch
+          #popd
 
           # dev branch
-          # wifi patch
+          # wifi patch from brrrrrrrrrr
           #pushd projects/Rockchip/patches/linux/RK3566-X55
           #rm 0*
           ##rm 003-fix-ps-vs-dts-aliases.patch
-          ##rm 004-fix-8821cs-sdio-errors.patch
+          #rm 004-fix-8821cs-sdio-errors.patch
           #wget https://gitlab.com/iii1111/brrrrrrrrrr/-/raw/master/patches/linux/0008-Fix-8821cs-sdio-errors.patch
           #popd
 
