@@ -122,7 +122,7 @@ jobs:
           #wget https://gitlab.com/iii1111/brrrrrrrrrr/-/raw/master/patches/linux/0008-Fix-8821cs-sdio-errors.patch
           #popd
 
-          #git apply ../busybox.patch
+          git apply ../busybox.patch
           
           # alt mirror
           git apply ../usb-modeswitch-dev.patch
