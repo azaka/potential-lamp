@@ -124,7 +124,7 @@ jobs:
 
           # fix retroarch
           pushd ./packages/emulators/standalone/retroarch/sources/
-          ln -s RK3566-X55 RK3566
+          ln -s RK3566 RK3566-X55 
           popd
 
           git apply ../busybox.patch
