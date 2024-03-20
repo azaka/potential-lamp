@@ -65,12 +65,6 @@ jobs:
           #git config --global user.name "Your Name"
           #git commit -am"resolve conflicts"
           #git revert 91c9969 --no-edit
-
-          # test jelos gamepad as js0
-          git config --global user.email "you@example.com"
-          git config --global user.name "Your Name"
-          git fetch https://github.com/stolen/jelos-distribution rk3566-make-virtual-gamepad-js0 # FETCH_HEAD
-          git merge FETCH_HEAD -m"pr"
           
           #! update u-boot patches for X55 for newer u-boot
           cp projects/Rockchip/packages/u-boot/patches/RK3566/001-v3-add_additional_boards_and_features_to_rgxx3.patch projects/Rockchip/packages/u-boot/patches/RK3566-X55
