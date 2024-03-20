@@ -1,0 +1,26 @@
+diff --git a/packages/emulators/tools/virtualcontroller/package.mk b/packages/emulators/tools/virtualcontroller/package.mk
+index ddf25ea4..c79a3934 100644
+--- a/packages/emulators/tools/virtualcontroller/package.mk
++++ b/packages/emulators/tools/virtualcontroller/package.mk
+@@ -2,7 +2,7 @@
+ # Copyright (C) 2023 JELOS (https://github.com/JustEnoughLinuxOS)
+ 
+ PKG_NAME="virtualcontroller"
+-PKG_VERSION="85f2c70c25230d90781dbddbc97436fa50283530"
++PKG_VERSION="e48e2081ac396441b685c0d162c6249f3b72572c"
+ PKG_LICENSE="GPLv2"
+ PKG_SITE="https://github.com/macromorgan/input-wrapper"
+ PKG_URL="${PKG_SITE}.git"
+diff --git a/projects/Rockchip/devices/RK3566-X55/options b/projects/Rockchip/devices/RK3566-X55/options
+index 83e9e682..4a0b9820 100644
+--- a/projects/Rockchip/devices/RK3566-X55/options
++++ b/projects/Rockchip/devices/RK3566-X55/options
+@@ -88,7 +88,7 @@
+   # for a list of additional drivers see packages/linux-drivers
+   # Space separated list is supported,
+   # e.g. ADDITIONAL_DRIVERS="DRIVER1 DRIVER2"
+-    ADDITIONAL_DRIVERS="jelos-gamepad"
++    ADDITIONAL_DRIVERS="virtual-controller"
+ 
+   # build and install driver addons (yes / no)
+     DRIVER_ADDONS_SUPPORT="no"
