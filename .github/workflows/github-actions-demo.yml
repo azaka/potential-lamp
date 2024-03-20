@@ -66,8 +66,11 @@ jobs:
           #git commit -am"resolve conflicts"
           #git revert 91c9969 --no-edit
 
-          # remove sdl2 patches
-          rm -rf packages/graphics/SDL2/patches
+          # test jelos gamepad as js0
+          git config --global user.email "you@example.com"
+          git config --global user.name "Your Name"
+          git fetch https://github.com/stolen/jelos-distribution rk3566-make-virtual-gamepad-js0 # FETCH_HEAD
+          git merge FETCH_HEAD -m"pr"
           
           #! update u-boot patches for X55 for newer u-boot
           cp projects/Rockchip/packages/u-boot/patches/RK3566/001-v3-add_additional_boards_and_features_to_rgxx3.patch projects/Rockchip/packages/u-boot/patches/RK3566-X55
@@ -101,12 +104,12 @@ jobs:
 
           # dev branch
           # wifi patch from brrrrrrrrrr
-          pushd projects/Rockchip/patches/linux/RK3566-X55
-          rm 0*
+          #pushd projects/Rockchip/patches/linux/RK3566-X55
+          #rm 0*
           ##rm 003-fix-ps-vs-dts-aliases.patch
           #rm 004-fix-8821cs-sdio-errors.patch
-          wget https://gitlab.com/iii1111/brrrrrrrrrr/-/raw/master/patches/linux/0008-Fix-8821cs-sdio-errors.patch
-          popd
+          #wget https://gitlab.com/iii1111/brrrrrrrrrr/-/raw/master/patches/linux/0008-Fix-8821cs-sdio-errors.patch
+          #popd
 
           # dev: update to 6.8
           #git config --global user.email "you@example.com"
@@ -119,11 +122,11 @@ jobs:
 
           # rebuild patches for x55
           # post symlink
-          #rm projects/Rockchip/patches/linux/RK3566-X55
-          #mkdir -p projects/Rockchip/patches/linux/RK3566-X55
-          #pushd projects/Rockchip/patches/linux/RK3566-X55
-          #wget https://gitlab.com/iii1111/brrrrrrrrrr/-/raw/master/patches/linux/0008-Fix-8821cs-sdio-errors.patch
-          #popd
+          rm projects/Rockchip/patches/linux/RK3566-X55
+          mkdir -p projects/Rockchip/patches/linux/RK3566-X55
+          pushd projects/Rockchip/patches/linux/RK3566-X55
+          wget https://gitlab.com/iii1111/brrrrrrrrrr/-/raw/master/patches/linux/0008-Fix-8821cs-sdio-errors.patch
+          popd
 
           # fix retroarch
           pushd ./packages/emulators/standalone/retroarch/sources/
