@@ -1,0 +1,22 @@
+diff --git a/packages/emulators/standalone/retroarch/package.mk b/packages/emulators/standalone/retroarch/package.mk
+index 1a979e34..1d3d54a9 100644
+--- a/packages/emulators/standalone/retroarch/package.mk
++++ b/packages/emulators/standalone/retroarch/package.mk
+@@ -21,7 +21,7 @@ PKG_CONFIGURE_OPTS_TARGET="   --disable-qt \
+                               --enable-alsa \
+                               --enable-udev \
+                               --disable-opengl1 \
+-                              --disable-x11 \
++                              --enable-x11 \
+                               --enable-zlib \
+                               --enable-freetype \
+                               --disable-discord \
+@@ -55,7 +55,7 @@ esac
+ 
+ if [ "${DISPLAYSERVER}" = "wl" ]; then
+   PKG_DEPENDS_TARGET+=" wayland ${WINDOWMANAGER}"
+-  PKG_CONFIGURE_OPTS_TARGET+=" --enable-wayland"
++  PKG_CONFIGURE_OPTS_TARGET+=" --disable-wayland"
+ else
+   PKG_CONFIGURE_OPTS_TARGET+=" --disable-wayland"
+ fi
