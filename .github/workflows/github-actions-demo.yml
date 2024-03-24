@@ -91,6 +91,7 @@ jobs:
           git apply ../sdl2-no-wayland.patch
           git apply ../disable-joydev.patch
           git apply ../retroarch-prefer-x11.patch
+          git apply ../ppsspp-nowayland.patch
 
           # remove outdated patches
           # for f in 003-v4-add-rk2023.patch 004-add-rg351v.patch 005-set-mac-address.patch 006-v2-add-powkiddy-x55.patch; do rm projects/Rockchip/packages/linux/patches/RK3566-X55/$f; done
