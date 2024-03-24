@@ -116,6 +116,7 @@ jobs:
           mkdir -p projects/Rockchip/patches/linux/RK3566-X55
           pushd projects/Rockchip/patches/linux/RK3566-X55
           wget https://github.com/JustEnoughLinuxOS/distribution/raw/4cd11b39e7d782c39d5fab3d5aad9e7148068845/projects/Rockchip/patches/linux/RK3566/019-fix-8821cs-sdio-errors-x55.patch          
+          cp ../RK3566/009-invert-abs.patch .
           popd
 
           # fix retroarch
