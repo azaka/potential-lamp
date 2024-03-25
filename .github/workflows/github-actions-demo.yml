@@ -131,6 +131,7 @@ jobs:
           git apply ../usb-modeswitch-dev.patch
           git apply ../rtmpdump.patch
           git apply ../edid-decode.patch
+          git apply ../libunwind.patch
 
           EMULATION_DEVICE=yes ENABLE_32BIT=yes make docker-RK3566 docker-RK3566-X55
           #BASE_ONLY=true ENABLE_32BIT=no make docker-RK3566 docker-RK3566-X55
