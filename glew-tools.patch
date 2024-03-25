@@ -1,0 +1,13 @@
+diff --git a/packages/graphics/glew/package.mk b/packages/graphics/glew/package.mk
+index ca16bf64..e1f8e739 100644
+--- a/packages/graphics/glew/package.mk
++++ b/packages/graphics/glew/package.mk
+@@ -24,7 +24,7 @@ pre_configure() {
+ }
+ 
+ pre_configure_target() {
+-  PKG_CMAKE_OPTS_TARGET+="      -DBUILD_UTILS=OFF \
++  PKG_CMAKE_OPTS_TARGET+="      -DBUILD_UTILS=ON \
+ 				-DGLEW_REGAL=OFF \
+ 				-DGLEW_OSMESA=OFF \
+ 				-DGLEW_EGL=ON \
