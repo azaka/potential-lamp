@@ -1,8 +1,8 @@
 diff --git a/packages/graphics/glew/package.mk b/packages/graphics/glew/package.mk
-index ca16bf64..e1f8e739 100644
+index ca16bf64..91a93fbc 100644
 --- a/packages/graphics/glew/package.mk
 +++ b/packages/graphics/glew/package.mk
-@@ -24,7 +24,7 @@ pre_configure() {
+@@ -24,9 +24,9 @@ pre_configure() {
  }
  
  pre_configure_target() {
@@ -10,4 +10,7 @@ index ca16bf64..e1f8e739 100644
 +  PKG_CMAKE_OPTS_TARGET+="      -DBUILD_UTILS=ON \
  				-DGLEW_REGAL=OFF \
  				-DGLEW_OSMESA=OFF \
- 				-DGLEW_EGL=ON \
+-				-DGLEW_EGL=ON \
++				-DGLEW_EGL=OFF \
+ 				-DBUILD_SHARED_LIBS=ON"
+ }
