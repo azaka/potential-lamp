@@ -1,0 +1,13 @@
+diff --git a/projects/Rockchip/packages/u-boot/package.mk b/projects/Rockchip/packages/u-boot/package.mk
+index d9ec3bbc..2ab537c9 100644
+--- a/projects/Rockchip/packages/u-boot/package.mk
++++ b/projects/Rockchip/packages/u-boot/package.mk
+@@ -26,6 +26,7 @@ case ${DEVICE} in
+     PKG_URL="https://github.com/u-boot/u-boot.git"
+     PKG_VERSION="e8f2404e093daf6cc3ac2b3233e3c6770d13e371"
+     PKG_GIT_CLONE_BRANCH="master"
++    UBOOT_IMG="u-boot.img"
+   ;;
+   RK3399)
+     PKG_DEPENDS_TARGET+=" atf openssl:host"
+

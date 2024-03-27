@@ -1,0 +1,169 @@
+name: GitHub Actions Demo
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on:
+  schedule:
+    - cron: "0 0 * * *"
+  push:
+jobs:
+  Explore-GitHub-Actions:
+    timeout-minutes: 1440
+    strategy: 
+      fail-fast: false
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
+      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+      - name: Maximize build space
+        uses: easimon/maximize-build-space@master
+        with:
+          root-reserve-mb: 4598
+          swap-size-mb: 1024
+          remove-dotnet: 'true'
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - run: |
+          #git clone https://github.com/JustEnoughLinuxOS/distribution -b mainline-3566
+          git clone https://github.com/JustEnoughLinuxOS/distribution -b dev
+          cd distribution && git checkout 079cddb28d28ab54630dc51cbeb63ef778447677
+      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
+      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
+      - name: Cache 64 bit
+        id: ccache-aarch64
+        uses: actions/cache@v4
+        with:
+          path: distribution/.ccache-aarch64
+          key: ${{ runner.os }}-ccache-aarch64-new
+      - name: Cache 32 bit
+        id: ccache-arm
+        uses: actions/cache@v4
+        with:
+          path: distribution/.ccache-arm
+          key: ${{ runner.os }}-ccache-arm-new
+      - name: List files in the repository
+        run: |
+          cd $RUNNER_WORKSPACE/potential-lamp
+          wget https://github.com/curl/curl/releases/download/curl-7_80_0/curl-7.80.0.tar.gz
+          tar xf curl-7.80.0.tar.gz
+          cd curl-7.80.0
+          sudo apt install libmbedtls-dev -y
+          ./configure --with-mbedtls
+          make && sudo make install
+          
+          cd $RUNNER_WORKSPACE/potential-lamp/distribution
+          cp ../package.mk packages/virtual/emulators/package.mk
+          #no longer needed
+          #git apply ../diff2
+          cat packages/virtual/emulators/package.mk
+
+          # restore removed firmware packages
+          #pushd projects/Rockchip/devices/RK3588
+          #rm options
+          #wget https://raw.githubusercontent.com/JustEnoughLinuxOS/distribution/667ae584b4215bd4ef7d8f5d58ff36b6f2420942/projects/Rockchip/devices/RK3588/options
+          #popd
+          #git config --global user.email "you@example.com"
+          #git config --global user.name "Your Name"
+          #git commit -am"resolve conflicts"
+          #git revert 91c9969 --no-edit
+          
+          #! update u-boot patches for X55 for newer u-boot
+          cp projects/Rockchip/packages/u-boot/patches/RK3566/001-v3-add_additional_boards_and_features_to_rgxx3.patch projects/Rockchip/packages/u-boot/patches/RK3566-X55
+          cp projects/Rockchip/packages/u-boot/patches/RK3566/003-fix-dtb-and-vs.patch projects/Rockchip/packages/u-boot/patches/RK3566-X55
+          # use older u-boot
+          #cp projects/Rockchip/packages/u-boot/patches/RK3566-X55/001-v3-add_additional_boards_and_features_to_rgxx3.patch projects/Rockchip/packages/u-boot/patches/RK3566
+          #cp projects/Rockchip/packages/u-boot/patches/RK3566-X55/003-fix-dtb-and-vs.patch projects/Rockchip/packages/u-boot/patches/RK3566
+          #git apply ../older-uboot-dev.patch
+          
+          #EMULATION_DEVICE=yes make docker-RK3566 docker-RK3566-X55
+          git apply ../emudeviceno.patch
+          # needed for bf90f7
+          # git apply ../bdf2psf.patch
+          
+          # only apply to mainline-3566
+          #git apply ../fix-mesa-mainline-3566.patch
+
+          git apply ../fix-mesa-dev.patch
+          #git apply ../mesa-bf90f7.patch
+
+          #current u-boot
+          git apply ../uboot-dev.patch
+          git apply ../input-wrapper.patch
+          git apply ../sdl2-no-wayland.patch
+          git apply ../disable-joydev.patch
+          git apply ../retroarch-prefer-x11.patch
+          git apply ../ppsspp-nowayland.patch
+          git apply ../glew-tools.patch
+
+          # remove outdated patches
+          # for f in 003-v4-add-rk2023.patch 004-add-rg351v.patch 005-set-mac-address.patch 006-v2-add-powkiddy-x55.patch; do rm projects/Rockchip/packages/linux/patches/RK3566-X55/$f; done
+          
+          # mainline-3566 branch
+          #pushd projects/Rockchip/packages/linux/patches/RK3566-X55/
+          #wget https://gitlab.com/iii1111/brrrrrrrrrr/-/raw/master/patches/linux/0008-Fix-8821cs-sdio-errors.patch
+          #popd
+
+          # dev: update to 6.8
+          #git config --global user.email "you@example.com"
+          #git config --global user.name "Your Name"
+          #git fetch https://github.com/spycat88/distribution 6.8-uplift # FETCH_HEAD
+          #git merge FETCH_HEAD -m"pr"
+
+          # rollback to 6.8-rc3
+          #git apply ../rollback-linux-rc3.patch
+
+          # rebuild patches for x55
+          # post symlink
+          rm projects/Rockchip/patches/linux/RK3566-X55
+          mkdir -p projects/Rockchip/patches/linux/RK3566-X55
+          pushd projects/Rockchip/patches/linux/RK3566-X55
+          cp $RUNNER_WORKSPACE/potential-lamp/019-fix-8821cs-sdio-errors-x55.patch .
+          cp ../RK3566/009-invert-abs.patch .
+          popd
+
+          # fix retroarch
+          pushd ./packages/emulators/standalone/retroarch/sources/
+          ln -s RK3566 RK3566-X55 
+          popd
+
+          git apply ../busybox.patch
+          
+          # alt mirror
+          git apply ../usb-modeswitch-dev.patch
+          git apply ../rtmpdump.patch
+          git apply ../edid-decode.patch
+          git apply ../libunwind.patch
+
+          EMULATION_DEVICE=yes ENABLE_32BIT=yes make docker-RK3566 docker-RK3566-X55
+          #BASE_ONLY=true ENABLE_32BIT=no make docker-RK3566 docker-RK3566-X55
+          ls -lah release
+          df -h
+          du . -h -d 1
+          #2>&1 || true
+          #CLEAN_PACKAGES="gmp" make docker-RK3566  
+          cd $RUNNER_WORKSPACE/potential-lamp/distribution/release
+          export LD_LIBRARY_PATH=/usr/local/lib
+          curl -T JELOS-RK3566-X55.aarch64-*.img.gz https://pixeldrain.com/api/file/
+          curl -T JELOS-RK3566-X55.aarch64-*.tar https://pixeldrain.com/api/file/
+          
+      - name: Save Cache 64 bit
+        uses: actions/cache/save@v4
+        id: save-ccache-aarch64
+        with:
+          path: distribution/.ccache-aarch64
+          key: ${{ runner.os }}-ccache-aarch64-new
+      - name: Save Cache 32 bit
+        uses: actions/cache/save@v4
+        id: save-ccache-arm
+        with:
+          path: distribution/.ccache-arm
+          key: ${{ runner.os }}-ccache-arm-new
+          
+      - run: echo "🍏 This job's status is ${{ job.status }}."
+      - name: Setup upterm session
+        uses: lhotari/action-upterm@v1
+        if: ${{ failure() }}
+        with:
+          ## limits ssh access and adds the ssh public key for the user which triggered the workflow
+          limit-access-to-actor: true
+          ## If no one connects after 5 minutes, shut down server.
+          wait-timeout-minutes: 60
