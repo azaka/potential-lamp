@@ -56,6 +56,11 @@ jobs:
           #git apply ../diff2
           cat packages/virtual/emulators/package.mk
 
+          git config --global user.email "you@example.com"
+          git config --global user.name "Your Name"
+          git fetch https://github.com/ananjaser1211/rocknix rk3566-x55-pr
+          git cherry-pick f05176b
+          git apply ../singleadc.patch
           # restore removed firmware packages
           #pushd projects/Rockchip/devices/RK3588
           #rm options
@@ -87,9 +92,7 @@ jobs:
 
           #current u-boot
           git apply ../uboot-dev.patch
-          git apply ../input-wrapper.patch
           git apply ../sdl2-no-wayland.patch
-          git apply ../disable-joydev.patch
           git apply ../retroarch-prefer-x11.patch
           git apply ../ppsspp-nowayland.patch
           git apply ../glew-tools.patch
@@ -118,6 +121,8 @@ jobs:
           pushd projects/Rockchip/patches/linux/RK3566-X55
           cp $RUNNER_WORKSPACE/potential-lamp/019-fix-8821cs-sdio-errors-x55.patch .
           cp ../RK3566/009-invert-abs.patch .
+          cp ../RK3566/029-singleadc-quadsar_adc-joypad-x55.patch .
+          cp ../RK3566/030-powkiddy-x55-input.patch .
           popd
 
           # fix retroarch
