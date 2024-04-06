@@ -58,9 +58,11 @@ jobs:
 
           git config --global user.email "you@example.com"
           git config --global user.name "Your Name"
-          git fetch https://github.com/ananjaser1211/rocknix rk3566-x55-pr
-          git cherry-pick f05176b
-          git apply ../singleadc.patch
+          git fetch https://github.com/ananjaser1211/rocknix testing-x55
+          git cherry-pick 43ab068
+          git cherry-pick 6150629
+          git cherry-pick 45305b9
+
           # restore removed firmware packages
           #pushd projects/Rockchip/devices/RK3588
           #rm options
