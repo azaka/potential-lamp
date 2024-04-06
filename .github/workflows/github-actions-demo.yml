@@ -116,6 +116,11 @@ jobs:
           # rollback to 6.8-rc3
           #git apply ../rollback-linux-rc3.patch
 
+          # add needed patch for new input driver
+          pushd projects/Rockchip/patches/linux/RK3566
+          wget https://github.com/ananjaser1211/rocknix/raw/testing-x55/projects/Rockchip/patches/linux/RK3566/019-singleadc-joypad.patch
+          popd
+
           # rebuild patches for x55
           # post symlink
           rm projects/Rockchip/patches/linux/RK3566-X55
@@ -125,6 +130,7 @@ jobs:
           cp ../RK3566/009-invert-abs.patch .
           cp ../RK3566/029-singleadc-quadsar_adc-joypad-x55.patch .
           cp ../RK3566/030-powkiddy-x55-input.patch .
+          cp ../RK3566/019-singleadc-joypad.patch .
           popd
 
           # fix retroarch
