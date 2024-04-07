@@ -116,6 +116,11 @@ jobs:
           wget https://github.com/ananjaser1211/rocknix/raw/testing-x55/projects/Rockchip/patches/linux/RK3566/019-singleadc-joypad.patch
           popd
 
+          pushd projects/Rockchip/devices/RK3566/linux
+          rm linux.aarch64.conf
+          wget https://github.com/ananjaser1211/rocknix/raw/testing-x55/projects/Rockchip/devices/RK3566/linux/linux.aarch64.conf
+          popd
+
           # rebuild patches for x55
           # post symlink
           rm projects/Rockchip/patches/linux/RK3566-X55
