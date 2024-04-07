@@ -113,7 +113,7 @@ jobs:
           pushd projects/Rockchip/patches/linux/RK3566
           wget https://github.com/ananjaser1211/rocknix/raw/testing-x55/projects/Rockchip/patches/linux/RK3566/019-singleadc-joypad.patch
           wget https://github.com/ananjaser1211/rocknix/raw/testing-x55/projects/Rockchip/patches/linux/RK3566/030-powkiddy-x55-input.patch
-          wget https://github.com/ananjaser1211/rocknix/raw/testing-x55/projects/Rockchip/patches/linux/RK3566/019-singleadc-joypad.patch
+          wget https://github.com/ananjaser1211/rocknix/raw/testing-x55/projects/Rockchip/patches/linux/RK3566/029-singleadc-quadsar_adc-joypad-x55.patch
           popd
 
           pushd projects/Rockchip/devices/RK3566/linux
