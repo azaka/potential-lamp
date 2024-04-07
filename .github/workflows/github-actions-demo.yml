@@ -56,13 +56,6 @@ jobs:
           #git apply ../diff2
           cat packages/virtual/emulators/package.mk
 
-          git config --global user.email "you@example.com"
-          git config --global user.name "Your Name"
-          git fetch https://github.com/ananjaser1211/rocknix testing-x55
-          git cherry-pick 43ab068
-          git cherry-pick 6150629
-          git cherry-pick 45305b9
-
           # restore removed firmware packages
           #pushd projects/Rockchip/devices/RK3588
           #rm options
@@ -118,6 +111,8 @@ jobs:
 
           # add needed patch for new input driver
           pushd projects/Rockchip/patches/linux/RK3566
+          wget https://github.com/ananjaser1211/rocknix/raw/testing-x55/projects/Rockchip/patches/linux/RK3566/019-singleadc-joypad.patch
+          wget https://github.com/ananjaser1211/rocknix/raw/testing-x55/projects/Rockchip/patches/linux/RK3566/030-powkiddy-x55-input.patch
           wget https://github.com/ananjaser1211/rocknix/raw/testing-x55/projects/Rockchip/patches/linux/RK3566/019-singleadc-joypad.patch
           popd
 
