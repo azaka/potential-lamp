@@ -49,6 +49,13 @@ jobs:
           sudo apt install libmbedtls-dev -y
           ./configure --with-mbedtls
           make && sudo make install
+
+          # setup libmali build
+          git config --global user.email "you@example.com"
+          git config --global user.name "Your Name"
+          git fetch https://github.com/stolen/jelos-distribution rk3566-mali-2
+          git cherry-pick e575b33
+          git cherry-pick 0c87717
           
           cd $RUNNER_WORKSPACE/potential-lamp/distribution
           cp ../package.mk packages/virtual/emulators/package.mk
@@ -65,11 +72,6 @@ jobs:
           #git config --global user.name "Your Name"
           #git commit -am"resolve conflicts"
           #git revert 91c9969 --no-edit
-
-          # setup libmali build
-          git fetch https://github.com/stolen/jelos-distribution rk3566-mali-2
-          git cherry-pick e575b33
-          git cherry-pick 0c87717
           
           #! update u-boot patches for X55 for newer u-boot
           cp projects/Rockchip/packages/u-boot/patches/RK3566/001-v3-add_additional_boards_and_features_to_rgxx3.patch projects/Rockchip/packages/u-boot/patches/RK3566-X55
