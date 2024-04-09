@@ -65,6 +65,11 @@ jobs:
           #git config --global user.name "Your Name"
           #git commit -am"resolve conflicts"
           #git revert 91c9969 --no-edit
+
+          # setup libmali build
+          git fetch https://github.com/stolen/jelos-distribution rk3566-mali-2
+          git cherry-pick e575b33
+          git cherry-pick 0c87717
           
           #! update u-boot patches for X55 for newer u-boot
           cp projects/Rockchip/packages/u-boot/patches/RK3566/001-v3-add_additional_boards_and_features_to_rgxx3.patch projects/Rockchip/packages/u-boot/patches/RK3566-X55
@@ -132,6 +137,12 @@ jobs:
           cp ../RK3566/030-powkiddy-x55-input.patch .
           cp ../RK3566/019-singleadc-joypad.patch .
           popd
+
+          # enable libmali for RK3566-X55
+          git checkout projects/Rockchip/devices/RK3566/linux/linux.aarch64.conf
+          cp projects/Rockchip/devices/RK3566/linux/linux.aarch64.conf projects/Rockchip/devices/RK3566-X55/linux/linux.aarch64.conf
+          cp projects/Rockchip/devices/RK3566/options projects/Rockchip/devices/RK3566-X55/options
+          
 
           # fix retroarch
           pushd ./packages/emulators/standalone/retroarch/sources/
