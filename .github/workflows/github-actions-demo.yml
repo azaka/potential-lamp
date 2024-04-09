@@ -50,6 +50,8 @@ jobs:
           ./configure --with-mbedtls
           make && sudo make install
 
+          cd $RUNNER_WORKSPACE/potential-lamp/distribution
+
           # setup libmali build
           git config --global user.email "you@example.com"
           git config --global user.name "Your Name"
