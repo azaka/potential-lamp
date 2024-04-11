@@ -148,6 +148,7 @@ jobs:
           cp projects/Rockchip/devices/RK3566/options projects/Rockchip/devices/RK3566-X55/options
           git apply ../ffmpeg.patch
           cp projects/Rockchip/patches/linux/RK3566/* projects/Rockchip/patches/linux/RK3566-X55
+          rm projects/Rockchip/patches/linux/RK3566-X55/019-rg503-mali-driver.patch
 
           # fix retroarch
           pushd ./packages/emulators/standalone/retroarch/sources/
