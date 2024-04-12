@@ -145,7 +145,8 @@ jobs:
           # enable libmali for RK3566-X55
           git checkout projects/Rockchip/devices/RK3566/linux/linux.aarch64.conf
           cp projects/Rockchip/devices/RK3566/linux/linux.aarch64.conf projects/Rockchip/devices/RK3566-X55/linux/linux.aarch64.conf
-          cp projects/Rockchip/devices/RK3566/options projects/Rockchip/devices/RK3566-X55/options
+          cp projects/Rockchip/patches/linux/RK3566/019-rg503-mali-driver.patch projects/Rockchip/patches/linux/RK3566-X55/019-rg503-mali-driver.patch
+          git apply ../libmali-options-x55.patch
           git apply ../ffmpeg.patch
           
 
