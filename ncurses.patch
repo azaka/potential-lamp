@@ -1,0 +1,13 @@
+diff --git a/packages/devel/ncurses/package.mk b/packages/devel/ncurses/package.mk
+index 38abdc49..6e7c32a1 100644
+--- a/packages/devel/ncurses/package.mk
++++ b/packages/devel/ncurses/package.mk
+@@ -7,7 +7,7 @@ PKG_NAME="ncurses"
+ PKG_VERSION="6.4"
+ PKG_LICENSE="MIT"
+ PKG_SITE="http://www.gnu.org/software/ncurses/"
+-PKG_URL="http://invisible-mirror.net/archives/ncurses/ncurses-${PKG_VERSION}.tar.gz"
++PKG_URL="https://sources.buildroot.net/ncurses/ncurses-6.4-20230603.tar.gz"
+ PKG_DEPENDS_HOST="ccache:host"
+ PKG_DEPENDS_TARGET="toolchain zlib ncurses:host"
+ PKG_LONGDESC="A library is a free software emulation of curses in System V Release 4.0, and more."
