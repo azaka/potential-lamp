@@ -58,6 +58,11 @@ jobs:
           git fetch https://github.com/stolen/jelos-distribution rk3566-mali-2
           git cherry-pick e575b33
           git cherry-pick 0c87717
+
+          git cherry-pick 80dd0b9
+          git cherry-pick 78d07ab5
+          git cherry-pick 5047da95
+          git cherry-pick 382ad051
           
           cd $RUNNER_WORKSPACE/potential-lamp/distribution
           cp ../package.mk packages/virtual/emulators/package.mk
