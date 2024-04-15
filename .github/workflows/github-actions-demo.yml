@@ -63,6 +63,13 @@ jobs:
           git cherry-pick 78d07ab5
           git cherry-pick 5047da95
           git cherry-pick 382ad051
+
+          git cherry-pick fedc52e # attempt to build wlroots against libmali?
+          git cherry-pick 1f1c135 # fix wlroots examples build
+          git cherry-pick e7e64ec # switch to weston11
+          git cherry-pick fc371df # latest libmali gles blobs
+          git cherry-pick 41550c2 # libmali fixes
+          git cherry-pick 0c4f0ce # configure to use weston11
           
           cd $RUNNER_WORKSPACE/potential-lamp/distribution
           cp ../package.mk packages/virtual/emulators/package.mk
