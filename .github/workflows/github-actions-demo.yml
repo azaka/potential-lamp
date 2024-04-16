@@ -64,12 +64,14 @@ jobs:
           git cherry-pick 5047da95
           git cherry-pick 382ad051
 
-          git cherry-pick fedc52e # attempt to build wlroots against libmali?
+          git apply ../fedc52e.patch
+          git commit -am"alt patch"
           git cherry-pick 1f1c135 # fix wlroots examples build
           git cherry-pick e7e64ec # switch to weston11
           git cherry-pick fc371df # latest libmali gles blobs
           git cherry-pick 41550c2 # libmali fixes
-          git cherry-pick 0c4f0ce # configure to use weston11
+          git apply ../0c4f0ce.patch
+          git commit -am"alt patch"
           
           cd $RUNNER_WORKSPACE/potential-lamp/distribution
           cp ../package.mk packages/virtual/emulators/package.mk

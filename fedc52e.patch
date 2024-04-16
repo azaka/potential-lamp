@@ -1,0 +1,32 @@
+commit f11e8352e0c82a662b2bf312da619e6a7da55d0f
+Author: Danil Zagoskin <z@gosk.in>
+Date:   Fri Mar 29 15:09:56 2024 +0300
+
+    build with libmali
+
+diff --git a/packages/graphics/cairo/package.mk b/packages/graphics/cairo/package.mk
+index 32f4462d..f58641b5 100644
+--- a/packages/graphics/cairo/package.mk
++++ b/packages/graphics/cairo/package.mk
+@@ -22,7 +22,7 @@ configure_package() {
+ 
+   case ${DISPLAYSERVER} in
+     "x11"|"wl")
+-      PKG_DEPENDS_TARGET+=" libxcb libXrender libX11 mesa"
++      PKG_DEPENDS_TARGET+=" libxcb libXrender libX11"
+     ;;
+   esac
+ 
+diff --git a/packages/wayland/lib/wlroots/package.mk b/packages/wayland/lib/wlroots/package.mk
+index ef4b8cc7..ec54fcb1 100644
+--- a/packages/wayland/lib/wlroots/package.mk
++++ b/packages/wayland/lib/wlroots/package.mk
+@@ -2,7 +2,7 @@
+ # Copyright (C) 2021-present Team LibreELEC (https://libreelec.tv)
+ 
+ PKG_NAME="wlroots"
+-PKG_VERSION="0.16.2"
++PKG_VERSION="0c0bf0e06d53a1d105fb72eb45ef040c7a28a0e1"
+ PKG_LICENSE="MIT"
+ PKG_SITE="https://gitlab.freedesktop.org/wlroots/wlroots/"
+ PKG_URL="https://gitlab.freedesktop.org/wlroots/wlroots/-/archive/${PKG_VERSION}/${PKG_NAME}-${PKG_VERSION}.tar.bz2"
