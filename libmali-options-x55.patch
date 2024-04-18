@@ -1,5 +1,5 @@
 diff --git a/projects/Rockchip/devices/RK3566-X55/options b/projects/Rockchip/devices/RK3566-X55/options
-index 83e9e682..9e71cdf6 100644
+index 83e9e682..dd0d1ffe 100644
 --- a/projects/Rockchip/devices/RK3566-X55/options
 +++ b/projects/Rockchip/devices/RK3566-X55/options
 @@ -52,23 +52,21 @@
@@ -12,11 +12,13 @@ index 83e9e682..9e71cdf6 100644
 +    GRAPHIC_DRIVERS=""
  
    # OpenGL(X) implementation to use (mesa / no)
-     OPENGL="mesa"
+-    OPENGL="mesa"
++    OPENGL=""
  
    # OpenGL-ES implementation to use (mesa / no)
+-    OPENGLES="mesa"
 +    MALI_VERSION="g13p0"
-     OPENGLES="mesa"
++    OPENGLES="libmali"
  
 -    GRAPHIC_DRIVERS="panfrost"
  
@@ -49,7 +51,7 @@ index 83e9e682..9e71cdf6 100644
    # Space separated list is supported,
    # e.g. ADDITIONAL_DRIVERS="DRIVER1 DRIVER2"
 -    ADDITIONAL_DRIVERS="jelos-gamepad"
-+    ADDITIONAL_DRIVERS="jelos-gamepad mali-bifrost"
++    ADDITIONAL_DRIVERS="mali-bifrost"
  
    # build and install driver addons (yes / no)
      DRIVER_ADDONS_SUPPORT="no"
