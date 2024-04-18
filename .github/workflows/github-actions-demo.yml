@@ -72,6 +72,8 @@ jobs:
           git cherry-pick 41550c2 # libmali fixes
           git apply ../0c4f0ce.patch
           git commit -am"alt patch"
+
+          git cherry-pick 3b7021d
           
           cd $RUNNER_WORKSPACE/potential-lamp/distribution
           cp ../package.mk packages/virtual/emulators/package.mk
