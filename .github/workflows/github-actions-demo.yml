@@ -133,6 +133,8 @@ jobs:
           cp ../RK3566/019-singleadc-joypad.patch .
           popd
 
+          cp $RUNNER_WORKSPACE/potential-lamp/linux.aarch64.conf projects/Rockchip/devices/RK3566-X55/linux
+
           # fix retroarch
           pushd ./packages/emulators/standalone/retroarch/sources/
           ln -s RK3566 RK3566-X55 
