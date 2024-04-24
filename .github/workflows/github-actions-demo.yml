@@ -49,31 +49,6 @@ jobs:
           sudo apt install libmbedtls-dev -y
           ./configure --with-mbedtls
           make && sudo make install
-
-          cd $RUNNER_WORKSPACE/potential-lamp/distribution
-
-          # setup libmali build
-          git config --global user.email "you@example.com"
-          git config --global user.name "Your Name"
-          git fetch https://github.com/stolen/jelos-distribution rk3566-mali-2
-          git cherry-pick e575b33
-          git cherry-pick 0c87717
-
-          git cherry-pick 80dd0b9
-          git cherry-pick 78d07ab5
-          git cherry-pick 5047da95
-          git cherry-pick 382ad051
-
-          git apply ../fedc52e.patch
-          git commit -am"alt patch"
-          git cherry-pick 1f1c135 # fix wlroots examples build
-          git cherry-pick e7e64ec # switch to weston11
-          git cherry-pick fc371df # latest libmali gles blobs
-          git cherry-pick 41550c2 # libmali fixes
-          git apply ../0c4f0ce.patch
-          git commit -am"alt patch"
-
-          git cherry-pick 3b7021d
           
           cd $RUNNER_WORKSPACE/potential-lamp/distribution
           cp ../package.mk packages/virtual/emulators/package.mk
@@ -157,14 +132,6 @@ jobs:
           cp ../RK3566/030-powkiddy-x55-input.patch .
           cp ../RK3566/019-singleadc-joypad.patch .
           popd
-
-          # enable libmali for RK3566-X55
-          git checkout projects/Rockchip/devices/RK3566/linux/linux.aarch64.conf
-          cp projects/Rockchip/devices/RK3566/linux/linux.aarch64.conf projects/Rockchip/devices/RK3566-X55/linux/linux.aarch64.conf
-          cp projects/Rockchip/patches/linux/RK3566/019-rg503-mali-driver.patch projects/Rockchip/patches/linux/RK3566-X55/019-rg503-mali-driver.patch
-          git apply ../libmali-options-x55.patch
-          git apply ../ffmpeg.patch
-          
 
           # fix retroarch
           pushd ./packages/emulators/standalone/retroarch/sources/
