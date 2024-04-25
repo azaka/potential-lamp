@@ -149,6 +149,7 @@ jobs:
           git apply ../libunwind.patch
           git apply ../xy.patch
           git apply ../ncurses.patch
+          git apply ../tiff.patch
 
           EMULATION_DEVICE=yes ENABLE_32BIT=yes make docker-RK3566 docker-RK3566-X55
           #BASE_ONLY=true ENABLE_32BIT=no make docker-RK3566 docker-RK3566-X55
