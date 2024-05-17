@@ -131,6 +131,7 @@ jobs:
           cp ../RK3566/029-singleadc-quadsar_adc-joypad-x55.patch .
           cp ../RK3566/030-powkiddy-x55-input.patch .
           cp ../RK3566/019-singleadc-joypad.patch .
+          wget https://github.com/ROCKNIX/distribution/raw/eb54cf8f5c8b40d74afe3f4b20fb8da4850b09e8/packages/kernel/linux/patches/mainline/0005-rk817-charger-fix-bad-PMIC-read-for-current-voltage.patch
           popd
 
           cp $RUNNER_WORKSPACE/potential-lamp/linux.aarch64.conf projects/Rockchip/devices/RK3566-X55/linux
