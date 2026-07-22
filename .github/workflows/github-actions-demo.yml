@@ -16,6 +16,7 @@ jobs:
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
       - name: Maximize build space
+        if: false
         uses: easimon/maximize-build-space@master
         with:
           root-reserve-mb: 6897
