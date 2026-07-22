@@ -1,0 +1,13 @@
+diff --git a/packages/emulators/standalone/ppsspp-sa/package.mk b/packages/emulators/standalone/ppsspp-sa/package.mk
+index a8c9e057..c3b601a4 100644
+--- a/packages/emulators/standalone/ppsspp-sa/package.mk
++++ b/packages/emulators/standalone/ppsspp-sa/package.mk
+@@ -64,7 +64,7 @@ fi
+ 
+ if [ "${DISPLAYSERVER}" = "wl" ]; then
+   PKG_DEPENDS_TARGET+=" wayland ${WINDOWMANAGER}"
+-  PKG_CMAKE_OPTS_TARGET+=" -DUSE_WAYLAND_WSI=ON"
++  PKG_CMAKE_OPTS_TARGET+=" -DUSE_WAYLAND_WSI=OFF"
+ else
+   PKG_CMAKE_OPTS_TARGET+=" -DUSE_WAYLAND_WSI=OFF"
+ fi

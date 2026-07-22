@@ -1,0 +1,76 @@
+diff --git a/projects/Rockchip/devices/RK3566-X55/options b/projects/Rockchip/devices/RK3566-X55/options
+index 83e9e682..dd0d1ffe 100644
+--- a/projects/Rockchip/devices/RK3566-X55/options
++++ b/projects/Rockchip/devices/RK3566-X55/options
+@@ -52,23 +52,21 @@
+  
+   # Mali GPU family
+     MALI_FAMILY="bifrost-g52"
+-  #  MALI_VERSION="g2p0"
+-  #  OPENGLES="libmali"
+-    VULKAN_SUPPORT=""
++    GRAPHIC_DRIVERS=""
+ 
+   # OpenGL(X) implementation to use (mesa / no)
+-    OPENGL="mesa"
++    OPENGL=""
+ 
+   # OpenGL-ES implementation to use (mesa / no)
+-    OPENGLES="mesa"
++    MALI_VERSION="g13p0"
++    OPENGLES="libmali"
+ 
+-    GRAPHIC_DRIVERS="panfrost"
+ 
+   # Displayserver to use (weston / x11 / no)
+     DISPLAYSERVER="wl"
+ 
+   # Windowmanager to use (fluxbox / weston / no)
+-    WINDOWMANAGER="weston"
++    WINDOWMANAGER="weston11"
+ 
+   # debug tty path
+     DEBUG_TTY="/dev/ttyS2"
+@@ -77,18 +75,21 @@
+     EXTRA_CMDLINE="quiet rootwait earlycon=uart8250,mmio32,0xfe660000 console=ttyS2,1500000n8 console=tty1 ssh consoleblank=0 systemd.show_status=0 loglevel=0 panic=20"
+ 
+   # additional packages to install
+-  #  ADDITIONAL_PACKAGES=""
++    #ADDITIONAL_PACKAGES=""
+ 
+   # additional Firmware to use ( )
+   # Space separated list is supported,
+   # e.g. FIRMWARE=""
+     FIRMWARE=""
+ 
++  # Modules to install in initramfs for early boot
++    INITRAMFS_MODULES=""
++
+   # additional drivers to install:
+   # for a list of additional drivers see packages/linux-drivers
+   # Space separated list is supported,
+   # e.g. ADDITIONAL_DRIVERS="DRIVER1 DRIVER2"
+-    ADDITIONAL_DRIVERS="jelos-gamepad"
++    ADDITIONAL_DRIVERS="mali-bifrost"
+ 
+   # build and install driver addons (yes / no)
+     DRIVER_ADDONS_SUPPORT="no"
+@@ -144,15 +145,15 @@
+   # build with swap support (yes / no)
+     SWAP_SUPPORT="yes"
+ 
++  # Some devices have internal storage.
++    INSTALLER_SUPPORT="yes"
++
+   # swap support enabled per default (yes / no)
+     SWAP_ENABLED_DEFAULT="yes"
+ 
+   # swapfile size if SWAP_SUPPORT=yes in MB
+     SWAPFILESIZE="384"
+ 
+-  # Some devices have internal storage.
+-    INSTALLER_SUPPORT="yes"
+-
+   # cron support (yes / no)
+     CRON_SUPPORT="no"
+ 

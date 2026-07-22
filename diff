@@ -1,0 +1,14 @@
+diff --git a/packages/devel/gmp/package.mk b/packages/devel/gmp/package.mk
+index d5be43323..439ddc03f 100644
+--- a/packages/devel/gmp/package.mk
++++ b/packages/devel/gmp/package.mk
+@@ -6,7 +6,8 @@ PKG_NAME="gmp"
+ PKG_VERSION="6.3.0"
+ PKG_LICENSE="LGPLv3+"
+ PKG_SITE="http://gmplib.org/"
+-PKG_URL="https://gmplib.org/download/gmp/${PKG_NAME}-${PKG_VERSION}.tar.xz"
++#PKG_URL="https://gmplib.org/download/gmp/${PKG_NAME}-${PKG_VERSION}.tar.xz"
++PKG_URL="https://ftp.gnu.org/gnu/gmp/gmp-6.3.0.tar.xz"
+ PKG_DEPENDS_HOST="ccache:host m4:host"
+ PKG_DEPENDS_TARGET="toolchain"
+ PKG_LONGDESC="A library for arbitrary precision arithmetic, operating on signed integers, rational numbers, and floating point numbers."

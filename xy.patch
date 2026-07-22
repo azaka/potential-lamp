@@ -1,0 +1,13 @@
+diff --git a/packages/compress/xz/package.mk b/packages/compress/xz/package.mk
+index c6871e29..eeb79670 100644
+--- a/packages/compress/xz/package.mk
++++ b/packages/compress/xz/package.mk
+@@ -7,7 +7,7 @@ PKG_NAME="xz"
+ PKG_VERSION="5.4.4"
+ PKG_LICENSE="GPL"
+ PKG_SITE="https://tukaani.org/xz/"
+-PKG_URL="https://tukaani.org/xz/${PKG_NAME}-${PKG_VERSION}.tar.xz"
++PKG_URL="https://sources.buildroot.net/${PKG_NAME}/${PKG_NAME}-${PKG_VERSION}.tar.bz2"
+ PKG_DEPENDS_HOST="ccache:host"
+ PKG_DEPENDS_TARGET="toolchain"
+ PKG_LONGDESC="A free general-purpose data compression software with high compression ratio."
