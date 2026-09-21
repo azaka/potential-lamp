@@ -4,6 +4,11 @@ on:
   #schedule:
   #  - cron: "0 0 * * *"
   workflow_dispatch:
+      inputs:
+        refToBuild:
+          description: 'Branch, tag or commit SHA1 to build'
+          required: true
+          type: string
   push:
 jobs:
   Explore-GitHub-Actions:
@@ -24,6 +29,8 @@ jobs:
           remove-dotnet: 'true'
       - name: Check out repository code
         uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.refToBuild || '' }}
       - run: |
           #git clone https://github.com/JustEnoughLinuxOS/distribution -b mainline-3566
           git clone https://github.com/JustEnoughLinuxOS/distribution -b dev
