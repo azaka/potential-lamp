@@ -20,6 +20,7 @@ jobs:
         uses: lexbritvin/ssh-session-action@v1
         with:
           use-bore: 'true'
+          wait-timeout: 21600
           use-actor-ssh-keys: 'true'
           ssh-server-authorized-keys: ${{ secrets.SSH_PUBLIC_KEYS }}
           
