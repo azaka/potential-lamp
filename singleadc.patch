@@ -1,0 +1,32 @@
+diff --git a/projects/Rockchip/devices/RK3566-X55/linux/linux.aarch64.conf b/projects/Rockchip/devices/RK3566-X55/linux/linux.aarch64.conf
+index 721676b7..6b0cc537 100644
+--- a/projects/Rockchip/devices/RK3566-X55/linux/linux.aarch64.conf
++++ b/projects/Rockchip/devices/RK3566-X55/linux/linux.aarch64.conf
+@@ -520,12 +520,14 @@ CONFIG_ISDN=y
+ CONFIG_INPUT_MATRIXKMAP=y
+ CONFIG_INPUT_JOYDEV=y
+ CONFIG_INPUT_EVDEV=y
++CONFIG_INPUT_POLLDEV=y
+ CONFIG_KEYBOARD_ADC=y
+ CONFIG_KEYBOARD_GPIO=y
+ CONFIG_KEYBOARD_GPIO_POLLED=y
+ # CONFIG_MOUSE_PS2 is not set
+ CONFIG_INPUT_JOYSTICK=y
+ CONFIG_JOYSTICK_ADC=y
++CONFIG_JOYSTICK_SINGLEADC_QUADSAR_JOY=y
+ CONFIG_JOYSTICK_XPAD=m
+ CONFIG_JOYSTICK_XPAD_FF=y
+ CONFIG_INPUT_TABLET=y
+diff --git a/projects/Rockchip/devices/RK3566-X55/options b/projects/Rockchip/devices/RK3566-X55/options
+index 83e9e682..db1aa9ce 100644
+--- a/projects/Rockchip/devices/RK3566-X55/options
++++ b/projects/Rockchip/devices/RK3566-X55/options
+@@ -88,7 +88,7 @@
+   # for a list of additional drivers see packages/linux-drivers
+   # Space separated list is supported,
+   # e.g. ADDITIONAL_DRIVERS="DRIVER1 DRIVER2"
+-    ADDITIONAL_DRIVERS="jelos-gamepad"
++    ADDITIONAL_DRIVERS=""
+ 
+   # build and install driver addons (yes / no)
+     DRIVER_ADDONS_SUPPORT="no"
