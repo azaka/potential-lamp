@@ -1,0 +1,62 @@
+commit 28cfaa4f793b313f5cd77e1dbbcd8edd6ff99211
+Author: Danil Zagoskin <z@gosk.in>
+Date:   Sun Mar 31 23:39:49 2024 +0300
+
+    use weston11 wm, the only working with libmali
+
+diff --git a/packages/hardware/quirks/platforms/RK3566/090-ui_service b/packages/hardware/quirks/platforms/RK3566/090-ui_service
+index eeafb89b..9c3fc10f 100755
+--- a/packages/hardware/quirks/platforms/RK3566/090-ui_service
++++ b/packages/hardware/quirks/platforms/RK3566/090-ui_service
+@@ -6,3 +6,15 @@
+ cat <<EOF >/storage/.config/profile.d/090-ui_service
+ UI_SERVICE="weston.service"
+ EOF
++
++elif [ -f "/usr/lib/systemd/system/weston.service" ]; then
++    cat <<EOF >/storage/.config/profile.d/090-ui_service
++UI_SERVICE="weston.service"
++EOF
++
++else
++    cat <<EOF >/storage/.config/profile.d/090-ui_service
++UI_SERVICE="emustation.service"
++EOF
++
++fi
+diff --git a/packages/wayland/weston11/system.d/weston.service b/packages/wayland/weston11/system.d/weston.service
+index 2ec7017e..f887332e 100644
+--- a/packages/wayland/weston11/system.d/weston.service
++++ b/packages/wayland/weston11/system.d/weston.service
+@@ -10,7 +10,7 @@ Environment=LANG=C
+ Environment=XDG_RUNTIME_DIR=/var/run/0-runtime-dir
+ WorkingDirectory=/storage
+ ExecStartPre=-/usr/lib/weston/weston-config
+-ExecStart=/usr/bin/weston --log=/var/log/weston.log
++ExecStart=/usr/bin/weston --socket=${XDG_RUNTIME_DIR}/wayland-1 --log=/var/log/weston.log
+ Restart=always
+ RestartSec=2
+ 
+diff --git a/projects/Rockchip/devices/RK3566/options b/projects/Rockchip/devices/RK3566/options
+index 994b429a..3205d825 100644
+--- a/projects/Rockchip/devices/RK3566/options
++++ b/projects/Rockchip/devices/RK3566/options
+@@ -51,7 +51,8 @@
+     HW_CPU="Rockchip RK3566"
+  
+   # Mali GPU family
+-    MALI_FAMILY="g52"
++    MALI_FAMILY="bifrost-g52"
++    MALI_VERSION="g13p0"
+     GRAPHIC_DRIVERS=""
+ 
+   # OpenGL(X) implementation to use (mesa / no)
+@@ -65,7 +66,7 @@
+     DISPLAYSERVER="wl"
+ 
+   # Windowmanager to use (fluxbox / weston / no)
+-    WINDOWMANAGER="weston"
++    WINDOWMANAGER="weston11"
+ 
+   # debug tty path
+     DEBUG_TTY="/dev/ttyS2"

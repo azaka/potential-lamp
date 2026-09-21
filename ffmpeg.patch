@@ -1,0 +1,13 @@
+diff --git a/packages/multimedia/ffmpeg/package.mk b/packages/multimedia/ffmpeg/package.mk
+index 197b0030..c73a3351 100644
+--- a/packages/multimedia/ffmpeg/package.mk
++++ b/packages/multimedia/ffmpeg/package.mk
+@@ -154,7 +154,7 @@ configure_target() {
+               --host-cc="${HOST_CC}" \
+               --host-cflags="${HOST_CFLAGS}" \
+               --host-ldflags="${HOST_LDFLAGS}" \
+-              --extra-cflags="${CFLAGS}" \
++              --extra-cflags="${CFLAGS} -I${SYSROOT_PREFIX}/usr/include/libdrm" \
+               --extra-ldflags="${LDFLAGS}" \
+               --extra-libs="${PKG_FFMPEG_LIBS}" \
+               --disable-static \

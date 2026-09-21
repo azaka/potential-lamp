@@ -1,0 +1,13 @@
+diff --git a/projects/Rockchip/devices/RK3566-X55/linux/linux.aarch64.conf b/projects/Rockchip/devices/RK3566-X55/linux/linux.aarch64.conf
+index 721676b7..735996b4 100644
+--- a/projects/Rockchip/devices/RK3566-X55/linux/linux.aarch64.conf
++++ b/projects/Rockchip/devices/RK3566-X55/linux/linux.aarch64.conf
+@@ -518,7 +518,7 @@ CONFIG_RTW89_8852CE=m
+ CONFIG_ZD1211RW=m
+ CONFIG_ISDN=y
+ CONFIG_INPUT_MATRIXKMAP=y
+-CONFIG_INPUT_JOYDEV=y
++CONFIG_INPUT_JOYDEV=n
+ CONFIG_INPUT_EVDEV=y
+ CONFIG_KEYBOARD_ADC=y
+ CONFIG_KEYBOARD_GPIO=y

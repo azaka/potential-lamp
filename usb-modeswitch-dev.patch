@@ -1,0 +1,13 @@
+diff --git a/packages/sysutils/usb-modeswitch/package.mk b/packages/sysutils/usb-modeswitch/package.mk
+index 306ec7ce..958a74f7 100644
+--- a/packages/sysutils/usb-modeswitch/package.mk
++++ b/packages/sysutils/usb-modeswitch/package.mk
+@@ -5,7 +5,7 @@ PKG_NAME="usb-modeswitch"
+ PKG_VERSION="2.6.0"
+ PKG_LICENSE="GPL"
+ PKG_SITE="http://www.draisberghof.de/usb_modeswitch/"
+-PKG_URL="http://www.draisberghof.de/usb_modeswitch/${PKG_NAME}-${PKG_VERSION}.tar.bz2"
++PKG_URL="https://sources.buildroot.net/usb_modeswitch/${PKG_NAME}-${PKG_VERSION}.tar.bz2"
+ PKG_DEPENDS_TARGET="toolchain libusb"
+ PKG_LONGDESC="USB_ModeSwitch - Handling Mode-Switching USB Devices on Linux"
+

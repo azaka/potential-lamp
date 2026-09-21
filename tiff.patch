@@ -1,0 +1,13 @@
+diff --git a/packages/graphics/tiff/package.mk b/packages/graphics/tiff/package.mk
+index e060f3f5..18bc35f9 100644
+--- a/packages/graphics/tiff/package.mk
++++ b/packages/graphics/tiff/package.mk
+@@ -6,7 +6,7 @@ PKG_NAME="tiff"
+ PKG_VERSION="4.6.0"
+ PKG_LICENSE="OSS"
+ PKG_SITE="http://www.remotesensing.org/libtiff/"
+-PKG_URL="http://download.osgeo.org/libtiff/${PKG_NAME}-${PKG_VERSION}.tar.gz"
++PKG_URL="https://sources.buildroot.net/${PKG_NAME}/${PKG_NAME}-${PKG_VERSION}.tar.gz"
+ PKG_DEPENDS_TARGET="toolchain libjpeg-turbo zlib"
+ PKG_LONGDESC="libtiff is a library for reading and writing TIFF files."
+ PKG_BUILD_FLAGS="+pic -gold"
